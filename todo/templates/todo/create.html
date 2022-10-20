@@ -1,0 +1,26 @@
+{% extends './index.html' %}
+
+{% block modal %}
+    <div id="modal-create" class="modal">
+        <div class="modal-content">
+        <form method="POST">
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" required>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+{% endblock  %}
+
+{% block script %}
+<script>
+    
+    window.onload = () =>{
+        const modal = document.getElementById("modal-create");
+
+        modal.style.display = "block"
+
+    }
+
+
+</script>
+{% endblock  %}

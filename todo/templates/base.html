@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <!--Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gemunu+Libre">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="{{ url_for('static', filename='js/flashMessage.js') }}"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <title>{% block title %}{% endblock %} - Flask TodoList</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="{{ url_for('todo.index') }}"><h1>Flask TodoList</h1></a>
+      <ul class="list">
+        {% if g.user %}
+        <li><span>Bienvenid@ {{ g.user['username'] }}</span></li>
+        <li><a href="{{ url_for('auth.logout') }}"><i class="material-icons">logout</i>Cerrar Sesión</a></li>
+        {% else %}
+        <li><a href="{{ url_for('auth.register') }}"><i class="material-icons">person_add</i>Registrarse</a></li>
+        <li><a href="{{ url_for('auth.login') }}"><i class="material-icons">login</i>Iniciar Sesión</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    <section class="content">
+      <header>{% block header %}{% endblock %}</header>
+
+      {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+      {% endfor %} 
+      {% block content %}{% endblock %}
+    </section>
+
+  </body>
+</html>

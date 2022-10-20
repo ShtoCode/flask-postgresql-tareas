@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Update{% endblock  %}</h1>
+{% endblock  %}
+
+{% block content %}
+
+<form method="POST">
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description" value="{{ request.form['description'] or todo['description'] }}" required>
+        <label for="completed">Completed</label>
+        <input type="checkbox" name="completed" id="completed" {% if todo['completed'] == 1 %}checked{% endif %} required/>
+        <button type="submit">Save</button>
+        <span id="close" class="close">Close</span>
+        </form>
+
+<!--    <div id="modal-update" class="modal">
+    <div class="modal-content">
+        
+    </div>
+    </div>
+    -->
+<!--   <form action="{{ url_for('todo.delete', id=todo['id']) }}" method="POST">
+        <button class="danger" type="submit" onclick="return confirm('Are you sure that you want delete this todo?')">Delete</button>
+    </form>
+-->
+{% endblock  %}
+    {% block script %}
+<!--    <script>
+    $(document).ready(function(){
+        $("#modal-update").modal("show")
+    })
+
+    </script>
+-->    
+    
+    {% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1 class="title">{% block title %}Todos{% endblock %}</h1>
+
+ {% endblock %} 
+{% block content %}
+<ul>
+  {% for todo in todos %}
+  <li></li>
+    <div class="todo">
+        <h1>
+            {% if todo['completed'] == 1 %}
+            <strike>{{ todo['description'] }}</strike>
+            {% else %}
+            {{ todo['description'] }}
+            {% endif %}
+        </h1>
+        <div class="about"><span>Creado: </span>{{ todo['created_at'].strftime('%HH-%MM') }}</div>
+
+        <a class="update" href="{{ url_for('todo.update', id=todo['id']) }}">Update</a>
+    </div>
+  {% if not loop.last %}
+    <hr>
+  {% endif %}
+  {% endfor %} 
+         {% if g.user %}
+         <a class="new" href="{{ url_for('todo.create') }}">
+         <i class="material-icons">
+          add
+          </i></a>
+        {% endif %}
+</ul>
+{% block modal %}
+
+{% endblock %}
+
+{% endblock %}
+
+{% block script %}
+  {% endblock %}
+
