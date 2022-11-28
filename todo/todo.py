@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
@@ -15,12 +14,12 @@ def index():
     c.execute(
         "SELECT t.id, t.description, u.username, t.completed, t.created_at FROM todo t JOIN user u ON created_by= u.id WHERE t.created_by=%s ORDER BY created_at DESC", (g.user['id'],)
     )
-    todos = c.fetchall()
-    return render_template('todo/index.html', todos=todos)
+    tareas = c.fetchall()
+    return render_template('todo/index.html', tareas=tareas)
 
-@bp.route('/create', methods=['GET', 'POST'])
+@bp.route('/crear', methods=['GET', 'POST'])
 @login_required
-def create():
+def crear():
     if request.method == 'POST':
         description = request.form['description']
         error = None
@@ -38,7 +37,7 @@ def create():
             db.commit()
             return redirect(url_for("todo.index"))
 
-    return render_template('todo/create.html')
+    return render_template('todo/crear.html')
 
 
 def get_todo(id):
@@ -54,9 +53,9 @@ def get_todo(id):
 
     return todo
 
-@bp.route('/<int:id>/update', methods=['GET', 'POST'])
+@bp.route('/<int:id>/actualizar', methods=['GET', 'POST'])
 @login_required
-def update(id):
+def actualizar(id):
     todo = get_todo(id)
     if request.method == 'POST':
         description = request.form['description']
@@ -75,17 +74,15 @@ def update(id):
             db.commit()
             return redirect(url_for('todo.index'))
 
-    return render_template('todo/update.html', todo=todo)
+    return render_template('todo/actualizar.html', todo=todo)
 
-@bp.route('/<int:id>/delete', methods=['POST'])
+@bp.route('/<int:id>/eliminar', methods=['GET', 'POST'])
 @login_required
-def delete(id):
-    if request.method=='POST':
+def eliminar(id):
         db, c = get_db()
         c.execute(
             "DELETE FROM todo WHERE id=%s AND created_by=%s", (id, g.user['id'])
         )
         db.commit()
         return redirect(url_for('todo.index'))
-    return render_template('todo/update.html')
 

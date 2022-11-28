@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1 class="title">{% block title %}Crear Tarea{% endblock  %}</h1>
+{% endblock  %}
+{% block content %}
+        <form method="POST" class="form">
+            <label for="description">Descripción</label>
+            <input type="text" name="description" id="description" required>
+            <button class="btn-form" type="submit">Guardar</button>
+        </form>
+{% endblock  %}
+
