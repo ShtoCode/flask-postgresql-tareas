@@ -49,7 +49,7 @@ def get_todo(id):
 
     todo = c.fetchone()
     if todo is None:
-        abort(404, "The todo with id {0} not exist".format(id))
+        abort(404, "La tarea con ID {0} no existe.".format(id))
 
     return todo
 
