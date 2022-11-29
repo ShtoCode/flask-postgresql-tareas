@@ -21,7 +21,7 @@
         <li><span>Bienvenid@ {{ g.user['username'] }}</span></li>
         <li><a href="{{ url_for('logout') }}"><i class="material-icons">logout</i>Cerrar Sesión</a></li>
         {% else %}
-        <li><a href="{{ url_for('register') }}"><i class="material-icons">person_add</i>Registrarse</a></li>
+        <li><a href="{{ url_for('registrar') }}"><i class="material-icons">person_add</i>Registrarse</a></li>
         <li><a href="{{ url_for('login') }}"><i class="material-icons">login</i>Iniciar Sesión</a></li>
         {% endif %}
       </ul>

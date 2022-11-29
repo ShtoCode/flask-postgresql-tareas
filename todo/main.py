@@ -20,14 +20,10 @@ app.config.from_mapping(
 
 
 db.init_app(app)
- 
 
 
-
-
-
-@app.route('/register', methods = ['GET', 'POST'])
-def register():
+@app.route('/registrar', methods = ['GET', 'POST'])
+def registrar():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -49,12 +45,10 @@ def register():
                 'INSERT INTO user (username, password) VALUES (%s, %s)', (username, generate_password_hash(password))
             )
             db.commit()
-
             return redirect(url_for('login'))
-        
         flash(error)
-    
     return render_template('auth/register.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
