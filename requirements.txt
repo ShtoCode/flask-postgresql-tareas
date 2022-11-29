@@ -37,7 +37,6 @@ more-itertools==8.10.0
 mysql-connector-python==8.0.31
 netifaces==0.11.0
 oauthlib==3.2.0
-onboard==1.4.1
 PAM==0.4.2
 pexpect==4.8.0
 Pillow==9.0.1
