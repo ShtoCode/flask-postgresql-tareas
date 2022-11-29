@@ -18,7 +18,7 @@
       <a href="{{ url_for('index') }}"><h1>Flask TodoList</h1></a>
       <ul class="list">
         {% if g.user %}
-        <li><span>Bienvenid@ {{ g.user['username'] }}</span></li>
+        <li><span>Bienvenid@ {{ g.user[1] }}</span></li>
         <li><a href="{{ url_for('logout') }}"><i class="material-icons">logout</i>Cerrar Sesión</a></li>
         {% else %}
         <li><a href="{{ url_for('registrar') }}"><i class="material-icons">person_add</i>Registrarse</a></li>
