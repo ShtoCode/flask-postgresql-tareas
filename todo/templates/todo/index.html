@@ -18,15 +18,15 @@
         </h1>
         <div class="about"><span>Creado: </span>{{ tarea['created_at'].strftime('%HH-%MM') }}</div>
 
-        <a class="actualizar" href="{{ url_for('todo.actualizar', id=tarea['id']) }}"><i class="material-icons">edit</i>Actualizar</a>
-        <a class="eliminar" href="{{ url_for('todo.eliminar', id=tarea['id']) }}"><i class="material-icons">delete</i>Eliminar</a>
+        <a class="actualizar" href="{{ url_for('actualizar', id=tarea['id']) }}"><i class="material-icons">edit</i>Actualizar</a>
+        <a class="eliminar" href="{{ url_for('eliminar', id=tarea['id']) }}"><i class="material-icons">delete</i>Eliminar</a>
     </div>
   {% if not loop.last %}
     <hr>
   {% endif %}
   {% endfor %} 
          {% if g.user %}
-         <a class="new" href="{{ url_for('todo.crear') }}"><i class="material-icons">add</i></a>
+         <a class="new" href="{{ url_for('crear') }}"><i class="material-icons">add</i></a>
         {% endif %}
 </ul>
 {% block modal %}
