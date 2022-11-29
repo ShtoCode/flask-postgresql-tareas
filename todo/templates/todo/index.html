@@ -18,8 +18,8 @@
         </h1>
         <div class="about"><span>Creado: </span>{{ tarea[4].strftime('%Y-%m-%d a las %H:%M')}}</div>
 
-        <a class="actualizar" href="{{ url_for('actualizar', id=tarea[0]) }}"><i class="material-icons">edit</i>Actualizar</a>
-        <a class="eliminar" href="{{ url_for('eliminar', id=tarea[0]) }}"><i class="material-icons">delete</i>Eliminar</a>
+        <a class="actualizar" href="{{ url_for('actualizar', id=tarea[0]) }}"><i class="material-icons">edit</i></a>
+        <a class="eliminar" href="{{ url_for('eliminar', id=tarea[0]) }}" ><i class="material-icons">delete</i></a>
     </div>
   {% if not loop.last %}
     <hr>
