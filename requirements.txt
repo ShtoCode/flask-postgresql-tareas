@@ -2,7 +2,6 @@ asn1crypto==1.4.0
 attrs==21.2.0
 Babel==2.8.0
 blinker==1.4
-Brlapi==0.8.3
 catfish==4.16.3
 certifi==2020.6.20
 chardet==4.0.0
