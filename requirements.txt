@@ -27,7 +27,6 @@ keyring==23.5.0
 launchpadlib==1.10.16
 lazr.restfulclient==0.14.4
 lazr.uri==1.0.6
-lightdm-gtk-greeter-settings==1.2.2
 lockfile==0.12.2
 louis==3.20.0
 Mako==1.1.3
