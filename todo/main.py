@@ -20,7 +20,11 @@ def create_app():
 
     app.register_blueprint(auth.bp)
     app.register_blueprint(todo.bp)
+ 
+ 
+    if __name__ == '__main__':
+        app.run(host='0.0.0.0',port=4000)
+
 
 
     return app
-
