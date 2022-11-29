@@ -42,7 +42,6 @@ protobuf==3.20.1
 psutil==5.9.0
 ptyprocess==0.7.0
 pycairo==1.20.1
-pycups==2.0.1
 Pygments==2.11.2
 PyICU==2.8.1
 pyinotify==0.9.6
