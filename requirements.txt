@@ -40,7 +40,6 @@ oauthlib==3.2.0
 pexpect==4.8.0
 Pillow==9.0.1
 platformdirs==2.5.4
-powerline-status==2.8.2
 protobuf==3.20.1
 psutil==5.9.0
 ptyprocess==0.7.0
