@@ -24,6 +24,7 @@ span{
 .navbar {
     display: flex;
     flex-direction: row;
+    align-items: center;
     background-color: #8AA29E67;
     width: 100vw;   
 }
@@ -137,8 +138,6 @@ li{
     padding: 10px;
     background-color: #8AA29E67;
     width: 95%;
-    margin-left: 10px;
-    margin-bottom: 10px;
     align-items: baseline;
 }
 
@@ -213,8 +212,6 @@ hr{
         padding: 10px;
         background-color: #8AA29E67;
         width: 95%;
-        margin-left: 10px;
-        margin-bottom: 10px;
         align-items: baseline;
 }
 
