@@ -57,7 +57,6 @@ pyparsing==2.4.7
 pyrsistent==0.18.1
 pytz==2022.1
 pyxdg==0.27
-PyYAML==5.4.1
 reportlab==3.6.8
 requests==2.25.1
 System-Monitoring-Center==1.8.0
