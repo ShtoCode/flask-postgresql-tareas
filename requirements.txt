@@ -10,7 +10,6 @@ cryptography==3.4.8
 dbus-python==1.2.18
 distlib==0.3.6
 distro==1.7.0
-distro-info===1.1build1
 dnspython==2.1.0
 duplicity==0.8.21
 fasteners==0.14.1
