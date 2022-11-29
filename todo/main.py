@@ -30,7 +30,7 @@ def registrar():
         db, c = get_db()
         error = None
         c.execute(
-            "SELECT id FROM user WHERE username = %s", (username,)
+            "SELECT id FROM usuario WHERE username = %s", (username,)
         )
         if not username:
             error = 'Username es requerido'
@@ -42,7 +42,7 @@ def registrar():
 
         if error is None:
             c.execute(
-                'INSERT INTO user (username, password) VALUES (%s, %s)', (username, generate_password_hash(password))
+                'INSERT INTO usuario (username, password) VALUES (%s, %s)', (username, generate_password_hash(password))
             )
             db.commit()
             return redirect(url_for('login'))
@@ -58,7 +58,7 @@ def login():
         db,c = get_db()
         error = None
         c.execute(
-            "SELECT * FROM user WHERE username = %s", (username,)
+            "SELECT * FROM usuario WHERE username = %s", (username,)
         )
         user = c.fetchone()
         
@@ -83,7 +83,7 @@ def load_logged_in_user():
     else:
         db,c = get_db()
         c.execute(
-            "SELECT * FROM user WHERE id= %s", (user_id,)
+            "SELECT * FROM usuario WHERE id= %s", (user_id,)
         )
         g.user = c.fetchone()
 
@@ -107,7 +107,7 @@ def logout():
 def index():
     db,c = get_db()
     c.execute(
-        "SELECT t.id, t.description, u.username, t.completed, t.created_at FROM todo t JOIN user u ON created_by= u.id WHERE t.created_by=%s ORDER BY created_at DESC", (g.user['id'],)
+        "SELECT t.id, t.description, u.username, t.completed, t.created_at FROM todo t JOIN usuario u ON created_by= u.id WHERE t.created_by=%s ORDER BY created_at DESC", (g.user['id'],)
     )
     tareas = c.fetchall()
     return render_template('todo/index.html', tareas=tareas)
@@ -139,7 +139,7 @@ def get_todo(id):
     db,c = get_db()
     c.execute(
         'SELECT t.id, t.description, t.completed, t.created_by, t.created_at, u.username '
-        'FROM todo t JOIN user u ON t.created_by=u.id WHERE t.id=%s', (id,)
+        'FROM todo t JOIN usuario u ON t.created_by=u.id WHERE t.id=%s', (id,)
     )
 
     todo = c.fetchone()
