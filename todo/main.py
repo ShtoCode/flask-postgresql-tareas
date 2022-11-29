@@ -47,7 +47,7 @@ def registrar():
             db.commit()
             return redirect(url_for('login'))
         flash(error)
-    return render_template('auth/register.html')
+    return render_template('auth/registrar.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -55,7 +55,7 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password'] 
-        db, c = get_db()
+        db,c = get_db()
         error = None
         c.execute(
             "SELECT * FROM user WHERE username = %s", (username,)
